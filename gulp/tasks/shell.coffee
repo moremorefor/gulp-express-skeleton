@@ -7,5 +7,5 @@ gulp.task 'install', shell.task(
       'bundle exec neat install',
       'bundle exec bitters install'
     ],
-    { cwd: './public_src/css/plugin/'}
+    { cwd: './app/public_src/css/plugin/'}
   )

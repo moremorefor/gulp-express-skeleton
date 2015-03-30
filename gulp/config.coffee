@@ -1,5 +1,5 @@
-srcDir = 'public_src'
-destDir = 'public'
+srcDir = 'app/public_src'
+destDir = 'app/public'
 
 path =
   src:
@@ -13,7 +13,7 @@ path =
     img    : destDir + '/images'
     coffee : destDir + '/javascripts/'
   watch:
-    jade   : 'views/*.jade'
+    jade   : 'app/views/*.jade'
     sass   : srcDir + '/**/*.sass'
     scss   : srcDir + '/**/*.scss'
     coffee : srcDir + '/**/*.coffee'
