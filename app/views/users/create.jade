@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  if messages
+    for message in messages
+      div(class="flash-alert")
+        span #{message}
+        
+  h1= title
+  form(action="/users" method="post" role="form")
+    label Username
+      input(type="text" name="username")
+    label Email
+      input(type="text" name="email")
+    label Password
+      input(type="text" name="password")
+    input(type="submit" value="Create user")
