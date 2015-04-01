@@ -13,7 +13,7 @@ path =
     img    : destDir + '/images'
     coffee : destDir + '/javascripts/'
   watch:
-    jade   : 'app/views/*.jade'
+    jade   : 'app/views/**/*.jade'
     sass   : srcDir + '/**/*.sass'
     scss   : srcDir + '/**/*.scss'
     coffee : srcDir + '/**/*.coffee'
