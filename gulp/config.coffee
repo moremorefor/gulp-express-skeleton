@@ -1,5 +1,7 @@
 srcDir = 'app/public_src'
 destDir = 'app/public'
+srcTestDir = 'test'
+destTestDir = 'powered_test'
 
 path =
   src:
@@ -20,6 +22,10 @@ path =
     png    : srcDir + '/**/*.png'
     jpg    : srcDir + '/**/*.jpg'
     gif    : srcDir + '/**/*.gif'
+  test:
+    src    : srcTestDir + '/**/*.coffee'
+    dest   : destTestDir
+    run    : destTestDir + '/**/*.js'
 
 module.exports =
   path: path

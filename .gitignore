@@ -13,3 +13,5 @@ Gemfile.lock
 **/plugin/base/
 
 public/
+
+powered_test
