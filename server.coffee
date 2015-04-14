@@ -4,11 +4,14 @@ favicon      = require 'serve-favicon'
 logger       = require 'morgan'
 cookieParser = require 'cookie-parser'
 bodyParser   = require 'body-parser'
+
 flash        = require 'connect-flash'
 session      = require 'express-session'
 mongoose     = require 'mongoose'
+viewHelpers  = require 'view-helpers'
 
 config       = require './app/config/config'
+pkg          = require './package.json'
 
 # DB
 mongoose.connect(config.db)
@@ -32,6 +35,7 @@ app.use session(
 app.use flash()
 app.use express.static(path.join(__dirname, 'app/public'))
 #app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use viewHelpers(pkg.name)
 
 index = require './app/routes/index'
 users = require './app/routes/users'
