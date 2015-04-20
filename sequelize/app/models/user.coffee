@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) ->
         set:  (val) ->
           this.setDataValue 'password', val
           salt = this.makeSalt()
+          this.setDataValue 'salt', salt
           hashed_password = this.encryptPassword val
           this.setDataValue 'hashed_password', hashed_password
         validate:
