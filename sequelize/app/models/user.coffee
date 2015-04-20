@@ -8,12 +8,24 @@ module.exports = (sequelize, DataTypes) ->
     {
       username:
         type: Sequelize.STRING
+        allowNull: false
+        validate:
+          notEmpty:
+            msg: "Username can't be blank"
       email:
         type: Sequelize.STRING
+        allowNull: false
+        validate:
+          notEmpty:
+            msg: "Email can't be blank"
+          isEmail:
+            msg: 'Please enter a valid email address'
       hashed_password:
         type: Sequelize.STRING
+        allowNull: false
       salt:
         type: Sequelize.STRING
+        allowNull: false
 
       password:
         type: DataTypes.VIRTUAL
@@ -24,15 +36,13 @@ module.exports = (sequelize, DataTypes) ->
           hashed_password = this.encryptPassword val
           this.setDataValue 'hashed_password', hashed_password
         validate:
-          isNotBlank: (val)->
-            if val.length == 0
-              throw new Error 'Password cannot be blank'
+          notEmpty:
+            msg: "Password can't be blank"
     },
     {
       classMethods:
         associate: (models) ->
           # associations can be defined here
-          # User.hasMany models.Task
           return
       instanceMethods:
         authenticate: (password) ->

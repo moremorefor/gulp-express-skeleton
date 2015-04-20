@@ -1,4 +1,5 @@
 db    = require '../models'
+Utils = require '../libs/utils'
 
 exports.create = (req, res) ->
   user = db.User.build req.body
@@ -10,4 +11,5 @@ exports.create = (req, res) ->
     .catch (err) ->
       if err
         console.log 'error: ', err
+        Utils.setFlashErrors req, err.errors
         res.redirect('/users')
