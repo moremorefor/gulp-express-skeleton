@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1= title
+  include ../components/messages
+  
+  form(action="/users" method="post" role="form")
+    label Username
+      input(type="text" name="username")
+    label Email
+      input(type="text" name="email")
+    label Password
+      input(type="text" name="password")
+    input(type="submit" value="Create user")
